@@ -1,0 +1,88 @@
+[debug] > Exec(early(addDefaultCommands), None, None)
+[debug] > Exec(addDefaultCommands, None, None)
+[debug] > Exec(early(initialize), None, None)
+[debug] > Exec(initialize, None, None)
+[debug] > Exec(boot, None, None)
+[debug] > Exec(writeSbtVersion, None, None)
+[debug] > Exec(reload, None, None)
+[debug] > Exec(sbtStashOnFailure, None, None)
+[debug] > Exec(onFailure loadFailed, None, None)
+[debug] > Exec(loadp, None, None)
+[info] welcome to sbt 1.8.2 (Ubuntu Java 11.0.18)
+[debug] Load.defaultLoad until apply took 145.507769ms
+[debug]           Load.loadUnit: plugins took 109.952423ms
+[debug]           Load.loadUnit: defsScala took 0.474309ms
+[debug] [Loading] Scanning directory /home/vaibhav/IdeaProjects/machine_learning/project
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in /home/vaibhav/IdeaProjects/machine_learning/project, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 40.229489 ms
+[debug]               Load.resolveProject(machine_learning-build) took 72.642507ms
+[debug]             Load.loadTransitive: finalizeProject(Project(id machine_learning-build, base: /home/vaibhav/IdeaProjects/machine_learning/project, plugins: List(<none>))) took 159.694234ms
+[debug] [Loading] Done in /home/vaibhav/IdeaProjects/machine_learning/project, returning: (machine_learning-build)
+[debug]           Load.loadUnit: loadedProjectsRaw took 190.594277ms
+[debug]           Load.loadUnit: cleanEvalClasses took 0.393105ms
+[debug]         Load.loadUnit(file:/home/vaibhav/IdeaProjects/machine_learning/project/, ...) took 310.47882ms
+[debug]       Load.apply: load took 529.400951ms
+[debug]       Load.apply: resolveProjects took 9.584312ms
+[debug]       Load.apply: finalTransforms took 102.262339ms
+[debug]       Load.apply: config.delegates took 7.56586ms
+[debug]       Load.apply: Def.make(settings)... took 547.29615ms
+[debug]       Load.apply: structureIndex took 127.967915ms
+[debug]       Load.apply: mkStreams took 2.03092ms
+[info] loading project definition from /home/vaibhav/IdeaProjects/machine_learning/project
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug]     Load.loadUnit: plugins took 2985.722703ms
+[debug]     Load.loadUnit: defsScala took 0.00706ms
+[debug] [Loading] Scanning directory /home/vaibhav/IdeaProjects/machine_learning
+[debug]       Load.loadUnit: mkEval took 8.529799ms
+[debug] [Loading] Found root project root w/ remaining 
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 3.877741 ms
+[info] loading settings for project root from build.sbt ...
+[debug]         Load.resolveProject(root) took 4.153385ms
+[debug]       Load.loadTransitive: finalizeProject(Project(id root, base: /home/vaibhav/IdeaProjects/machine_learning, plugins: List(<none>))) took 10.960018ms
+[debug] [Loading] Done in /home/vaibhav/IdeaProjects/machine_learning, returning: (root)
+[debug]     Load.loadUnit: loadedProjectsRaw took 2593.858875ms
+[debug]     Load.loadUnit: cleanEvalClasses took 6.479128ms
+[debug]   Load.loadUnit(file:/home/vaibhav/IdeaProjects/machine_learning/, ...) took 5588.217943ms
+[debug] Load.apply: load took 5625.342151ms
+[debug] Load.apply: resolveProjects took 0.197325ms
+[debug] Load.apply: finalTransforms took 18.752058ms
+[debug] Load.apply: config.delegates took 0.610837ms
+[debug] Load.apply: Def.make(settings)... took 125.471234ms
+[debug] Load.apply: structureIndex took 43.511269ms
+[debug] Load.apply: mkStreams took 0.004246ms
+[info] set current project to machine_learning (in build file:/home/vaibhav/IdeaProjects/machine_learning/)
+[debug] > Exec(sbtPopOnFailure, None, None)
+[debug] > Exec(resumeFromFailure, None, None)
+[debug] > Exec(notifyUsersAboutShell, None, None)
+[debug] > Exec(iflast shell, None, None)
+[debug] > Exec(shell, None, None)
+[info] sbt server started at local:///home/vaibhav/.sbt/1.0/server/638809d0edeb54f9d793/sock
+[debug] Writing bsp connection file
+[info] started sbt server
