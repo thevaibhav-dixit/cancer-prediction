@@ -33,27 +33,12 @@ def main(args : Array[String]): Unit = {
   val scaledDF = scalerPipeline.fit(indexedDF).transform(indexedDF)
   scaledDF.show()
   val Array(trainDF, testDF) = scaledDF.randomSplit(Array(0.8, 0.2), seed=42)
-//
-//  val lr = new LogisticRegression().setFeaturesCol("scaledFeatures").setLabelCol("TenYearCHD_index").setMaxIter(20).setRegParam(0.3).setElasticNetParam(0.8)
-//  val lrModel = lr.fit(trainDF)
-//  val predictions = lrModel.transform(testDF)
-//
-//  val binaryEvaluator = new BinaryClassificationEvaluator().setRawPredictionCol("rawPrediction").setLabelCol("TenYearCHD_index")
-//  println(s"Test AUC: ${binaryEvaluator.evaluate(predictions)}")
-//
-//  val rf = new RandomForestClassifier().setLabelCol("TenYearCHD_index").setFeaturesCol("scaledFeatures").setNumTrees(100)
-//  val rfModel = rf.fit(trainDF)
-//val predictions = rfModel.transform(testDF)
-//val binaryEvaluator = new BinaryClassificationEvaluator().setRawPredictionCol("rawPrediction").setLabelCol("TenYearCHD_index")
-//println(s"Test AUC: ${binaryEvaluator.evaluate(predictions)}")
-
-  val gbt = new GBTClassifier().setLabelCol("TenYearCHD_index").setFeaturesCol("scaledFeatures").setMaxIter(10)
-  val gbtModel = gbt.fit(trainDF)
-  val predictions = gbtModel.transform(testDF)
-  val binaryEvaluator = new BinaryClassificationEvaluator().setRawPredictionCol("rawPrediction").setLabelCol("TenYearCHD_index")
-  println(s"Test AUC: ${binaryEvaluator.evaluate(predictions)}")
 
 
+  val rf = new RandomForestClassifier().setLabelCol("TenYearCHD_index").setFeaturesCol("scaledFeatures").setNumTrees(100)
+  val rfModel = rf.fit(trainDF)
+val predictions = rfModel.transform(testDF)
+val binaryEvaluator = new BinaryClassificationEvaluator().setRawPredictionCol("rawPrediction").setLabelCol("TenYearCHD_index")
 
 }
 }
