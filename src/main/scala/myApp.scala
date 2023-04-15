@@ -21,10 +21,6 @@ def main(args : Array[String]): Unit = {
   var indexedDF = indexerPipeline.fit(df).transform(df)
   indexedDF = indexedDF.drop("male" , "age", "currentSmoker", "cigsPerDay", "BPMeds", "prevalentStroke", "prevalentHyp", "diabetes", "totChol", "sysBP", "diaBP", "BMI", "heartRate", "glucose", "TenYearCHD")
 
-//  replace na with 0
-//  fill na values with mean in indexedDF
-  
-//  use vector assembler to combine all the features into a single vector column
   val assembler = new VectorAssembler()
     .setInputCols(Array("male_index" , "currentSmoker_index", "cigsPerDay_index", "BPMeds_index", "prevalentStroke_index", "prevalentHyp_index", "diabetes_index", "totChol_index", "sysBP_index", "diaBP_index", "BMI_index", "heartRate_index", "glucose_index"))
     .setOutputCol("features")
@@ -39,6 +35,8 @@ def main(args : Array[String]): Unit = {
   val rfModel = rf.fit(trainDF)
 val predictions = rfModel.transform(testDF)
 val binaryEvaluator = new BinaryClassificationEvaluator().setRawPredictionCol("rawPrediction").setLabelCol("TenYearCHD_index")
+val accuracy = binaryEvaluator.evaluate(predictions)
+println("Accuracy = " + accuracy)
 
 }
 }
