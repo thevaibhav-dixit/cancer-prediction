@@ -2,7 +2,7 @@ import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
 import org.apache.spark.ml.feature.{StringIndexer, VectorAssembler, Imputer, StandardScaler}
 import org.apache.spark.ml.Pipeline
-import org.apache.spark.ml.classification.LogisticRegression
+import org.apache.spark.ml.classification.{RandomForestClassifier, LogisticRegression}
 import org.apache.spark.ml.evaluation.{BinaryClassificationEvaluator}
 
 
@@ -33,12 +33,19 @@ def main(args : Array[String]): Unit = {
   val scaledDF = scalerPipeline.fit(indexedDF).transform(indexedDF)
   scaledDF.show()
   val Array(trainDF, testDF) = scaledDF.randomSplit(Array(0.8, 0.2), seed=42)
+//
+//  val lr = new LogisticRegression().setFeaturesCol("scaledFeatures").setLabelCol("TenYearCHD_index").setMaxIter(20).setRegParam(0.3).setElasticNetParam(0.8)
+//  val lrModel = lr.fit(trainDF)
+//  val predictions = lrModel.transform(testDF)
+//
+//  val binaryEvaluator = new BinaryClassificationEvaluator().setRawPredictionCol("rawPrediction").setLabelCol("TenYearCHD_index")
+//  println(s"Test AUC: ${binaryEvaluator.evaluate(predictions)}")
 
-  val lr = new LogisticRegression().setFeaturesCol("scaledFeatures").setLabelCol("TenYearCHD_index").setMaxIter(20).setRegParam(0.3).setElasticNetParam(0.8)
-  val lrModel = lr.fit(trainDF)
-  val predictions = lrModel.transform(testDF)
+  val rf = new RandomForestClassifier().setLabelCol("TenYearCHD_index").setFeaturesCol("scaledFeatures").setNumTrees(100)
+  val rfModel = rf.fit(trainDF)
+val predictions = rfModel.transform(testDF)
+val binaryEvaluator = new BinaryClassificationEvaluator().setRawPredictionCol("rawPrediction").setLabelCol("TenYearCHD_index")
+println(s"Test AUC: ${binaryEvaluator.evaluate(predictions)}")
 
-  val binaryEvaluator = new BinaryClassificationEvaluator().setRawPredictionCol("rawPrediction").setLabelCol("TenYearCHD_index")
-  println(s"Test AUC: ${binaryEvaluator.evaluate(predictions)}")
 }
 }
